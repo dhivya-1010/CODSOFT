@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            border-color: rgb(146, 27, 27);
+        }
+
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 1em 0;
+            text-align: center;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        nav ul li {
+            margin: 0 20px; /* Added more margin for spacing */
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #FFD700; /* Gold color on hover */
+        }
+
+        main {
+            padding: 20px;
+        }
+
+        section {
+            margin-bottom: 40px;
+            border: 1px solid #cb4c4c;
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        .project {
+            background-color: #f4f4f4;
+            padding: 10px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+        }
+
+        .project img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        label, input {
+            margin-bottom: 10px;
+        }
+
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <center>
+    <header>
+        <h1>DHIVYA V</h1>
+        <nav>
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#blog">Blog</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section id="about" style="background-color: #ba6b6b;">
+            <img src="my image.png" height="600px" width="450px">
+            <h2>About Me</h2>
+            <p>Hi, I'm Dhivya! I'm an engineering student with a passion for web development.</p>
+        </section>
+        <section id="skills" style="background-color: antiquewhite;">
+            <h2>Skills</h2>
+            <h4>c programming</h4>
+            <h4>content writing</h4>
+            <h4>html,css,js</h4>
+        </section>
+        <section id="projects" style="background-color: bisque;">
+            <h2>Projects</h2>
+            <div class="project">
+                <h3>Project 1</h3>
+                <img src="Screenshot 2024-12-20 095636.png" alt="Project 1 image">
+                <p>a hardware gadget that helps to detects the animals by their
+                     body temperature and throws a sign by alarm sound to prevent
+                      road accidents by the unexpected crossing of animals . 
+                      it prevents accidents as well as saving animals </p>
+            </div>
+            <div class="project">
+                <h3>Project 2</h3>
+                <img src="Screenshot 2024-12-20 095136.png" alt="Project 2 image">
+                <p>WiMaCh is the most awaited technology by the mobile users in the world.
+                    It is the essential tool to make our day to day life easier
+                    It gives importance to energy concervation too.It enables people to 
+                    charge their mobile phones easily using easily available wireless magnetic chargers.
+                    </p>
+            </div>
+        </section>
+        <section id="resume" style="background-color: aqua;">
+            <h2>Resume</h2>
+            <a href="DHIVYA V__RESUME.pdf" download>Download My Resume</a>
+        </section>
+        <section id="contact" style="background-color: burlywood;">
+            <h2>Contact</h2>
+            <form>
+                <p>Email: dhivya@gmail.com</p>
+                <p>Phone: +123-456-7890</p><br><br>
+                <h3>connect with me!</h3>
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email">
+                <input type="submit" value="Submit">
+            </form>
+        </section>
+    </main>
+    </center>
+    <footer>
+        <p>&copy; 2025 dhivya. All rights reserved.</p>
+    </footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            console.log('Portfolio website loaded!');
+        });
+    </script>
+</body>
+</html>

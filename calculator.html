@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <style>
+        /* styles.css */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+}
+
+.calculator {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    padding: 20px;
+}
+
+.display {
+    background-color: #333;
+    color: white;
+    font-size: 2em;
+    padding: 10px;
+    text-align: right;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    height: 50px;
+    box-sizing: border-box;
+}
+
+.buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+}
+
+.button {
+    background-color: #4CAF50;
+    color: white;
+    font-size: 1.5em;
+    border: none;
+    border-radius: 5px;
+    padding: 20px;
+    cursor: pointer;
+}
+
+.button:hover {
+    background-color: #45a049;
+}
+
+.button[data-value="="] {
+    background-color: #e45a5a;
+}
+
+.button[data-value="="]:hover {
+    background-color: #db8166;
+}
+
+.button[data-value="C"] {
+    background-color: #b96863;
+}
+
+.button[data-value="C"]:hover {
+    background-color: #eb5757;
+}
+
+
+    </style>
+</head>
+<body>
+    <div class="calculator">
+        <div id="display" class="display">0</div>
+        <div class="buttons">
+            <button class="button" data-value="7">7</button>
+            <button class="button" data-value="8">8</button>
+            <button class="button" data-value="9">9</button>
+            <button class="button" data-value="/">/</button>
+            <button class="button" data-value="4">4</button>
+            <button class="button" data-value="5">5</button>
+            <button class="button" data-value="6">6</button>
+            <button class="button" data-value="*">*</button>
+            <button class="button" data-value="1">1</button>
+            <button class="button" data-value="2">2</button>
+            <button class="button" data-value="3">3</button>
+            <button class="button" data-value="-">-</button>
+            <button class="button" data-value="0">0</button>
+            <button class="button" data-value=".">.</button>
+            <button class="button" data-value="=">=</button>
+            <button class="button" data-value="+">+</button>
+            <button class="button" data-value="C">C</button>
+        </div>
+    </div>
+    <script>
+        // script.js
+document.addEventListener('DOMContentLoaded', function() {
+    const buttons = document.querySelectorAll('.button');
+    const display = document.getElementById('display');
+    let currentInput = '0';
+    let operator = '';
+    let operand1 = '';
+    let operand2 = '';
+
+    buttons.forEach(button => {
+        button.addEventListener('click', function() {
+            const value = this.getAttribute('data-value');
+
+            if (value === 'C') {
+                currentInput = '0';
+                operand1 = '';
+                operand2 = '';
+                operator = '';
+                display.innerText = currentInput;
+            } else if (value === '=') {
+                operand2 = currentInput;
+                display.innerText = evaluate(operand1, operator, operand2);
+                currentInput = display.innerText;
+                operand1 = '';
+                operator = '';
+                operand2 = '';
+            } else if (value === '+' || value === '-' || value === '*' || value === '/') {
+                if (currentInput === '') return;
+                operand1 = currentInput;
+                operator = value;
+                currentInput = '';
+            } else {
+                if (currentInput === '0') {
+                    currentInput = value;
+                } else {
+                    currentInput += value;
+                }
+                display.innerText = currentInput;
+            }
+        });
+    });
+
+    function evaluate(operand1, operator, operand2) {
+        const op1 = parseFloat(operand1);
+        const op2 = parseFloat(operand2);
+        switch (operator) {
+            case '+':
+                return op1 + op2;
+            case '-':
+                return op1 - op2;
+            case '*':
+                return op1 * op2;
+            case '/':
+                return op1 / op2;
+            default:
+                return '';
+        }
+    }
+});
+
+    </script>
+</body>
+</html>
